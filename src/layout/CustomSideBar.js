@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { Layout, Menu, Icon } from 'antd';
 
 const { Sider } = Layout;
 
 class CustomSideBar extends Component {
-
     render() {
-        const { collapsed } = this.props;
         return (
-            <Sider trigger={null} collapsible collapsed={collapsed} style={{ height: '100vh' }}>
+            <Sider trigger={null} collapsible collapsed={this.props.collapsed} style={{ height: '100vh' }}>
                 <div className="logo" />
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                     <Menu.Item key="1">
@@ -36,4 +33,3 @@ CustomSideBar.propTypes = {
 };
 
 export default CustomSideBar;
-

@@ -2,11 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, Layout } from 'antd';
+import { Layout } from 'antd';
 import CustomSideBar from './CustomSideBar';
+import CustomHeader from './CustomHeader';
 import './index.css';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 class AppLayout extends React.Component {
 
@@ -25,16 +26,9 @@ class AppLayout extends React.Component {
             <Layout>
                 <CustomSideBar collapsed={this.state.collapsed} />
                 <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
-                        <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
-                    </Header>
-
+                    <CustomHeader collapsed={this.state.collapsed} onClickToggle={this.toggle} />
                     <Content>
-                        {this.props.children ? this.props.children : <br/>}
+                        {this.props.children ? this.props.children : null}
                     </Content>
                 </Layout>
             </Layout>
